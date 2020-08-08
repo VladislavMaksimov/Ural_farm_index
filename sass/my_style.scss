@@ -1,10 +1,13 @@
+// Значения по умолчанию
 $background-url: "/assets/background/background.jpg";
 
+// Миксин: центрирование по вертикали
 @mixin flex-center-vertical {
     display: flex;
     align-items: center;
 }
 
+// Миксин: центрирование по вертикали и горизонтали
 @mixin flex-center {
     @include flex-center-vertical();
     justify-content: center 
@@ -20,6 +23,7 @@ div, body, p {
     box-sizing: border-box;
 }
 
+/* Фон */
 #background {
     height: 100%;
     background: url($background-url) no-repeat;
@@ -28,12 +32,15 @@ div, body, p {
     z-index: -100;
 }
 
+/* Слой, на котором расположены другие элементы */
 .page {
+    /* Структура страницы */
     display: grid; 
     grid-template-columns: 2fr 8fr;
     grid-template-rows: 4fr 1fr 20fr 2fr;
     padding: 1% 5% 0 5%;
 
+    // Миксин: строка по всей ширине грида
     @mixin row {
         grid-column: 1 / span 2;
         border-radius: 1vw;
@@ -43,20 +50,26 @@ div, body, p {
         justify-content: space-around;
     }
 
+    /* Хэдер */
     .header {
         @include row();
 
         background-color: #b3cff2;
         padding: 2%;
 
+        /* Логотип колхоза */
         img {
             height: 209px;
             width: 240px;
         }
 
+        /* Блоки адреса и контактов */
         div {
+            /* Занимают всю высоту хэдера */
             height: 100%;
+            /* 5 блоков по 20% каждый*/
             width: 20%;
+            /* Контент центрирован */
             @include flex-center();
             font-size: 1.2em;
 
@@ -74,10 +87,12 @@ div, body, p {
         }
     }
 
+    /* Панель навигации */
     .nav {
         @include row();
         padding: 2%;        
         background-color: #05afdf;
+        /* Убирает буллиты */
         list-style-type: none;
 
         a {
@@ -89,26 +104,31 @@ div, body, p {
         }
     }
 
+    /* Панель с побочной информацией */
     .side-bar {
         
         &>* {
             margin-top: 10%;
+            width: 90%;
         }
 
+        /* Блок продукции */
         .production {
-            width: 90%;
 
+            /* Шапка блока */
             .our-prod {
-                border-radius: 1vw 1vw 0 0;
-                border: 1px solid #82b501;
                 background-color: #82b501;
+                border: 1px solid #82b501;
+                border-radius: 1vw 1vw 0 0;
                 padding: 2%;
             }
 
+            /* Список продукции */
             .list-prod {
                 display: grid;
                 grid-template-columns: 1fr;
                 grid-template-rows: repeat(4, 1fr);
+
                 height: 100%;
                 background-color: white;
                 border: 1px solid #82b501;
@@ -127,23 +147,27 @@ div, body, p {
             }
         }
 
+        /* Прогноз погоды */
         img {
+            /* Блочное отображение - убирает лишние отступы */
             display: block;
-            max-width: 90%;
             cursor: pointer;
         }
 
+        /* Заказать звонок */
         .callback {
+            /* Центрируется по вертикали */
             @include flex-center-vertical();
-            padding: 5% 1% 5% 1%;
             justify-content: space-evenly;
-            width: 90%;
-            border-radius: 1vw;
+            /* Большие отступы по бокам */
+            padding: 5% 1% 5% 1%;
             background-color: #009600;
-            cursor: pointer;
+            border-radius: 1vw;
 
+            cursor: pointer;
             color: white;
             
+            /* Внутренний текст только из заглавных букв */
             span {
                 text-transform: uppercase;
             }
@@ -154,7 +178,9 @@ div, body, p {
         }
     }
 
+    /* Футер */
     .footer {
+        /* Те же стили, что у хэдера*/
         @extend .header;
         background-color: #b3cff2;
     }

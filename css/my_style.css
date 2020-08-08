@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +10,7 @@ div, body, p {
           box-sizing: border-box;
 }
 
+/* Фон */
 #background {
   height: 100%;
   background: url("/assets/background/background.jpg") no-repeat;
@@ -17,7 +19,9 @@ div, body, p {
   z-index: -100;
 }
 
+/* Слой, на котором расположены другие элементы */
 .page {
+  /* Структура страницы */
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 2fr 8fr;
@@ -25,6 +29,10 @@ div, body, p {
   -ms-grid-rows: 4fr 1fr 20fr 2fr;
       grid-template-rows: 4fr 1fr 20fr 2fr;
   padding: 1% 5% 0 5%;
+  /* Хэдер */
+  /* Панель навигации */
+  /* Панель с побочной информацией */
+  /* Футер */
 }
 
 .page .header, .page .footer {
@@ -46,6 +54,8 @@ div, body, p {
       justify-content: space-around;
   background-color: #b3cff2;
   padding: 2%;
+  /* Логотип колхоза */
+  /* Блоки адреса и контактов */
 }
 
 .page .header img, .page .footer img {
@@ -54,8 +64,11 @@ div, body, p {
 }
 
 .page .header div, .page .footer div {
+  /* Занимают всю высоту хэдера */
   height: 100%;
+  /* 5 блоков по 20% каждый*/
   width: 20%;
+  /* Контент центрирован */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -99,6 +112,7 @@ div, body, p {
       justify-content: space-around;
   padding: 2%;
   background-color: #05afdf;
+  /* Убирает буллиты */
   list-style-type: none;
 }
 
@@ -110,18 +124,26 @@ div, body, p {
   text-decoration: none;
 }
 
-.page .side-bar > * {
-  margin-top: 10%;
+.page .side-bar {
+  /* Блок продукции */
+  /* Прогноз погоды */
+  /* Заказать звонок */
 }
 
-.page .side-bar .production {
+.page .side-bar > * {
+  margin-top: 10%;
   width: 90%;
 }
 
+.page .side-bar .production {
+  /* Шапка блока */
+  /* Список продукции */
+}
+
 .page .side-bar .production .our-prod {
-  border-radius: 1vw 1vw 0 0;
-  border: 1px solid #82b501;
   background-color: #82b501;
+  border: 1px solid #82b501;
+  border-radius: 1vw 1vw 0 0;
   padding: 2%;
 }
 
@@ -155,27 +177,29 @@ div, body, p {
 }
 
 .page .side-bar img {
+  /* Блочное отображение - убирает лишние отступы */
   display: block;
-  max-width: 90%;
   cursor: pointer;
 }
 
 .page .side-bar .callback {
+  /* Центрируется по вертикали */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 5% 1% 5% 1%;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  width: 90%;
-  border-radius: 1vw;
+  /* Большие отступы по бокам */
+  padding: 5% 1% 5% 1%;
   background-color: #009600;
+  border-radius: 1vw;
   cursor: pointer;
   color: white;
+  /* Внутренний текст только из заглавных букв */
 }
 
 .page .side-bar .callback span {
@@ -187,5 +211,6 @@ div, body, p {
 }
 
 .page .footer {
+  /* Те же стили, что у хэдера*/
   background-color: #b3cff2;
 }

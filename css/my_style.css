@@ -22,8 +22,8 @@ div, body, p {
   display: grid;
   -ms-grid-columns: 1fr 10fr;
       grid-template-columns: 1fr 10fr;
-  -ms-grid-rows: 6fr 1fr 20fr 6fr;
-      grid-template-rows: 6fr 1fr 20fr 6fr;
+  -ms-grid-rows: 4fr 1fr 20fr 6fr;
+      grid-template-rows: 4fr 1fr 20fr 6fr;
   padding: 1% 5% 0 5%;
 }
 
@@ -32,7 +32,6 @@ div, body, p {
   -ms-grid-column-span: 2;
   grid-column: 1 / span 2;
   border-radius: 1vw;
-  background-color: #b3cff2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -45,6 +44,7 @@ div, body, p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: #b3cff2;
   padding: 2%;
 }
 
@@ -77,5 +77,35 @@ div, body, p {
 }
 
 .page .header div a:hover {
+  text-decoration: none;
+}
+
+.page .nav {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / span 2;
+  border-radius: 1vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2%;
+  background-color: #05afdf;
+  list-style-type: none;
+}
+
+.page .nav a {
+  color: white;
+}
+
+.page .nav a:hover {
   text-decoration: none;
 }

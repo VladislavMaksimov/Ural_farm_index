@@ -90,12 +90,19 @@ div, body, p {
     }
 
     .side-bar {
-        .production {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 35%;
 
+        .production {
+            background-color: red;
+            height: 20px;
+            width: 20px;
         }
 
         img {
-
+            max-width: 90%;
         }
 
         .callback {

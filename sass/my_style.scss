@@ -31,7 +31,7 @@ div, body, p {
 .page {
     display: grid; 
     grid-template-columns: 2fr 8fr;
-    grid-template-rows: 4fr 1fr 20fr 6fr;
+    grid-template-rows: 4fr 1fr 20fr 2fr;
     padding: 1% 5% 0 5%;
 
     @mixin row {
@@ -152,5 +152,10 @@ div, body, p {
                 text-decoration: underline;
             }
         }
+    }
+
+    .footer {
+        @extend .header;
+        background-color: #b3cff2;
     }
 }

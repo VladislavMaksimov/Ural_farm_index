@@ -22,12 +22,12 @@ div, body, p {
   display: grid;
   -ms-grid-columns: 2fr 8fr;
       grid-template-columns: 2fr 8fr;
-  -ms-grid-rows: 4fr 1fr 20fr 6fr;
-      grid-template-rows: 4fr 1fr 20fr 6fr;
+  -ms-grid-rows: 4fr 1fr 20fr 2fr;
+      grid-template-rows: 4fr 1fr 20fr 2fr;
   padding: 1% 5% 0 5%;
 }
 
-.page .header {
+.page .header, .page .footer {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-column: 1 / span 2;
@@ -48,12 +48,12 @@ div, body, p {
   padding: 2%;
 }
 
-.page .header img {
+.page .header img, .page .footer img {
   height: 209px;
   width: 240px;
 }
 
-.page .header div {
+.page .header div, .page .footer div {
   height: 100%;
   width: 20%;
   display: -webkit-box;
@@ -68,15 +68,15 @@ div, body, p {
   font-size: 1.2em;
 }
 
-.page .header div address {
+.page .header div address, .page .footer div address {
   font-style: normal;
 }
 
-.page .header div a {
+.page .header div a, .page .footer div a {
   color: black;
 }
 
-.page .header div a:hover {
+.page .header div a:hover, .page .footer div a:hover {
   text-decoration: none;
 }
 
@@ -184,4 +184,8 @@ div, body, p {
 
 .page .side-bar .callback:hover {
   text-decoration: underline;
+}
+
+.page .footer {
+  background-color: #b3cff2;
 }

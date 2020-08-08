@@ -20,8 +20,8 @@ div, body, p {
 .page {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 10fr;
-      grid-template-columns: 1fr 10fr;
+  -ms-grid-columns: 2fr 8fr;
+      grid-template-columns: 2fr 8fr;
   -ms-grid-rows: 4fr 1fr 20fr 6fr;
       grid-template-rows: 4fr 1fr 20fr 6fr;
   padding: 1% 5% 0 5%;
@@ -35,15 +35,15 @@ div, body, p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   background-color: #b3cff2;
   padding: 2%;
 }
@@ -88,15 +88,15 @@ div, body, p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   padding: 2%;
   background-color: #05afdf;
   list-style-type: none;
@@ -108,4 +108,25 @@ div, body, p {
 
 .page .nav a:hover {
   text-decoration: none;
+}
+
+.page .side-bar .callback {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5% 1% 5% 1%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 90%;
+  border-radius: 1vw;
+  background-color: #009600;
+}
+
+.page .side-bar .callback span {
+  color: white;
+  text-transform: uppercase;
 }

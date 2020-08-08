@@ -1,8 +1,12 @@
 $background-url: "/assets/background/background.jpg";
 
-@mixin flex-center {
+@mixin flex-center-vertical {
     display: flex;
     align-items: center;
+}
+
+@mixin flex-center {
+    @include flex-center-vertical();
     justify-content: center 
 }
 
@@ -26,7 +30,7 @@ div, body, p {
 
 .page {
     display: grid; 
-    grid-template-columns: 1fr 10fr;
+    grid-template-columns: 2fr 8fr;
     grid-template-rows: 4fr 1fr 20fr 6fr;
     padding: 1% 5% 0 5%;
 
@@ -34,10 +38,9 @@ div, body, p {
         grid-column: 1 / span 2;
         border-radius: 1vw;
 
-        display: flex;
+        @include flex-center-vertical();
         flex-direction: row;
         justify-content: space-around;
-        align-items: center;
     }
 
     .header {
@@ -83,6 +86,30 @@ div, body, p {
 
         a:hover {
             text-decoration: none;
+        }
+    }
+
+    .side-bar {
+        .production {
+
+        }
+
+        img {
+
+        }
+
+        .callback {
+            @include flex-center-vertical();
+            padding: 5% 1% 5% 1%;
+            justify-content: space-evenly;
+            width: 90%;
+            border-radius: 1vw;
+            background-color: #009600;
+            
+            span {
+                color: white;
+                text-transform: uppercase;
+            }
         }
     }
 }

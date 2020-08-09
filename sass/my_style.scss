@@ -23,7 +23,7 @@ div, body, p {
     box-sizing: border-box;
 }
 
-/* Фон */
+// Фон 
 #background {
     height: 100%;
     background: url($background-url) no-repeat;
@@ -32,9 +32,9 @@ div, body, p {
     z-index: -100;
 }
 
-/* Слой, на котором расположены другие элементы */
+// Слой, на котором расположены другие элементы 
 .page {
-    /* Структура страницы */
+    // Структура страницы 
     display: grid; 
     grid-template-columns: 2fr 8fr;
     grid-template-rows: 3fr 1fr auto 1.5fr;
@@ -50,26 +50,26 @@ div, body, p {
         justify-content: space-around;
     }
 
-    /* Хэдер */
+    // Хэдер 
     .header {
         @include row();
 
         background-color: #b3cff2;
         padding: 2%;
 
-        /* Логотип колхоза */
+        // Логотип колхоза 
         img {
             max-height: 100%;
             max-width: 100%;
         }
 
-        /* Блоки адреса и контактов */
+        // Блоки адреса и контактов 
         div {
-            /* Занимают всю высоту хэдера */
+            // Занимают всю высоту хэдера 
             height: 100%;
-            /* 5 блоков по 20% каждый*/
+            // 5 блоков по 20% каждый
             width: 20%;
-            /* Контент центрирован */
+            // Контент центрирован 
             @include flex-center();
             font-size: 1.2em;
 
@@ -88,13 +88,13 @@ div, body, p {
         }
     }
 
-    /* Панель навигации */
+    // Панель навигации 
     .nav {
         @include row();
         flex-wrap: wrap;
         padding: 2%;        
         background-color: #05afdf;
-        /* Убирает буллиты */
+        // Убирает буллиты 
         list-style-type: none;
 
         a {
@@ -107,7 +107,7 @@ div, body, p {
         }
     }
 
-    /* Панель с побочной информацией */
+    // Панель с побочной информацией 
     .side-bar {
         padding-top: 2vw;
         
@@ -118,24 +118,24 @@ div, body, p {
 
         // Миксин: иконка с текстом
         @mixin bar-plus-text {
-            /* Центрируется по вертикали */
+            // Центрируется по вертикали 
             @include flex-center-vertical();
             justify-content: space-evenly;
-            /* Большие отступы по бокам */
+            // Большие отступы по бокам 
             padding: 5% 1% 5% 1%;
 
             color: white;
             
-            /* Внутренний текст только из заглавных букв */
+            // Внутренний текст только из заглавных букв 
             span {
                 text-transform: uppercase;
             }
         }
 
-        /* Блок продукции */
+        // Блок продукции 
         .production {
 
-            /* Шапка блока */
+            // Шапка блока 
             .our-prod {
                 background-color: #82b501;
                 border: 1px solid #82b501;
@@ -149,7 +149,7 @@ div, body, p {
                 }
             }
 
-            /* Список продукции */
+            // Список продукции 
             .list-prod {
                 display: flex;
                 flex-direction: column;
@@ -174,14 +174,14 @@ div, body, p {
             }
         }
 
-        /* Прогноз погоды */
+        // Прогноз погоды 
         img {
-            /* Блочное отображение - убирает лишние отступы */
+            // Блочное отображение - убирает лишние отступы 
             display: block;
             cursor: pointer;
         }
 
-        /* Заказать звонок */
+        // Заказать звонок 
         .callback {
             @include bar-plus-text();
 
@@ -196,11 +196,11 @@ div, body, p {
         }
     }
 
-    /* Слой с основной информацией о колхозе */
+    // Слой с основной информацией о колхозе 
     .main {
         padding: 2vw 0 2vw 0;
 
-        /* Основная информация */
+        // Основная информация 
         .content {
             height: 100%;
             background-color: white;
@@ -208,14 +208,14 @@ div, body, p {
             border: solid #009600 1px;
             padding: 2%;
 
-            /* Заголовок */
+            // Заголовок 
             h1 {
                 font-weight: normal;
                 text-transform: uppercase;
                 color: #009600;
             }
 
-            /* Карусель с фотографиями */
+            // Карусель с фотографиями 
             .photos {
                 border-top: solid #009600 4px;
                 border-bottom: solid #009600 4px;
@@ -223,44 +223,51 @@ div, body, p {
                 margin-bottom: 2%;
             }
 
-            /* Значки "предыдущая" и "следующая" в карусели */
+            // Значки "предыдущая" и "следующая" в карусели 
             i.fas {
                 color: #edebeb;
                 font-size: 3vw;
             }
 
-            /* Стих */
+            // Стих 
             .poetry {
                 color: #99cc00;
             }
         }
     }
 
-    /* Футер */
+    // Футер 
     .footer {
-        /* Те же стили, что у хэдера*/
+        // Те же стили, что у хэдера
         @extend .header;
         background-color: #b3cff2;
     }
 }
 
+// Медиазапрос: экраны до 640px
 @media only screen and (max-width: 640px) {
     .page {
+        // Теперь колонка только одна
         grid-template-columns: 1fr;
+        // Хэдер с лого зависит от ширины экрана, остальные рассчитываются автоматически
         grid-template-rows: 30vw auto auto auto auto;
 
+        // Хэдер
         .header {
             grid-column: 1/2;
 
+            // Всё, кроме лого, пропадает
             &>div {
                 display: none;
             }
         }
 
+        // Панель навигации
         .nav {
             grid-column: 1/2;
             justify-content: space-evenly;
 
+            // Вокруг элементов навигации возникают границы
             &>li {
                 border: 1px solid white;
                 border-radius: 1vw;
@@ -268,13 +275,16 @@ div, body, p {
             }
         }
 
+        // Панель с побочной информацией 
         .side-bar {
             grid-row: 4 / 5;
             
+            // Все картинки пропадают
             img {
                 display: none;
             }
 
+            // Блоки продукции и звонка занимают всю ширину контейнера, их содержимое центрируется
             .production, .callback {
                 width: 100%;
                 margin-right: 0;
@@ -282,6 +292,7 @@ div, body, p {
                 justify-content: center;
             }
 
+            // Ссылки в списке продуктов центрируются
             .production {
                 .list-prod {
                     a {
@@ -291,6 +302,7 @@ div, body, p {
                 }
             }
 
+            // Ссылка в блоке звонка приводится к виду ссылки в our-prod
             .callback {
                 text-decoration: underline;
 
@@ -300,9 +312,11 @@ div, body, p {
             }
         }
 
+        // Футер
         .footer {
             grid-column: 1/2;
             
+            // Блоки не пропадают
             &>div {
                 display: flex;
                 

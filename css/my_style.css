@@ -87,6 +87,7 @@ div, body, p {
 
 .page .header div a, .page .footer div a {
   color: black;
+  text-decoration: underline;
 }
 
 .page .header div a:hover, .page .footer div a:hover {
@@ -118,6 +119,7 @@ div, body, p {
 
 .page .nav a {
   color: white;
+  text-decoration: underline;
 }
 
 .page .nav a:hover {
@@ -169,6 +171,7 @@ div, body, p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  text-decoration: underline;
   color: black;
 }
 
@@ -199,7 +202,7 @@ div, body, p {
   border-radius: 1vw;
   cursor: pointer;
   color: white;
-  /* Внутренний текст только из заглавных букв */
+  /* Внутренний текст только из заглавных букв    */
 }
 
 .page .side-bar .callback span {
@@ -208,6 +211,28 @@ div, body, p {
 
 .page .side-bar .callback:hover {
   text-decoration: underline;
+}
+
+.page .main {
+  padding: 2%;
+}
+
+.page .main .content {
+  height: 100%;
+  background-color: white;
+  border-radius: 1vw;
+  border: solid #009600 1px;
+  padding: 2%;
+}
+
+.page .main .content h1 {
+  font-weight: normal;
+  text-transform: uppercase;
+  color: #009600;
+}
+
+.page .main .content .poetry {
+  color: #99cc00;
 }
 
 .page .footer {

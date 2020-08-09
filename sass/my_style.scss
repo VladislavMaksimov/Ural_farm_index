@@ -79,6 +79,7 @@ div, body, p {
 
             a {
                 color: black;
+                text-decoration: underline;
             }
 
             a:hover {
@@ -97,6 +98,7 @@ div, body, p {
 
         a {
             color: white;
+            text-decoration: underline;
         }
 
         a:hover {
@@ -138,6 +140,7 @@ div, body, p {
 
                 a {
                     @include flex-center-vertical();
+                    text-decoration: underline;
                     color: black;
                 }
 
@@ -167,13 +170,35 @@ div, body, p {
             cursor: pointer;
             color: white;
             
-            /* Внутренний текст только из заглавных букв */
+            /* Внутренний текст только из заглавных букв    */
             span {
                 text-transform: uppercase;
             }
 
             &:hover {
                 text-decoration: underline;
+            }
+        }
+    }
+
+    .main {
+        padding: 2%;
+
+        .content {
+            height: 100%;
+            background-color: white;
+            border-radius: 1vw;
+            border: solid #009600 1px;
+            padding: 2%;
+
+            h1 {
+                font-weight: normal;
+                text-transform: uppercase;
+                color: #009600;
+            }
+
+            .poetry {
+                color: #99cc00;
             }
         }
     }

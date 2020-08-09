@@ -6,7 +6,15 @@
 
     <title> Колхоз Урал </title>
 
+    <!-- Подключение Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <!-- /Подключение Bootstrap -->
+
     <link rel="stylesheet" type="text/css" href="/css/my_style.css">
+    
 </head>
 <body>
     
@@ -127,7 +135,103 @@
             <!-- /Панель с побочной информацией -->
 
             <!-- Панель с основной информацией -->
-            <div class="main"></div>
+            <div class="main">
+
+                <div class="content">
+                    <article>
+                        <h1> Главная </h1>
+
+                        <!-- Карусель с фотографиями -->
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                              
+                              <div class="carousel-item active">
+                                <img src="/assets/photos/tractor.jpg" class="d-block w-100" alt="Трактор">
+                              </div>
+
+                              <div class="carousel-item">
+                                <img src="/assets/photos/vehicles.jpg" class="d-block w-100" alt="Сбор урожая">
+                              </div>
+
+                              <div class="carousel-item">
+                                <img src="/assets/photos/cow.jpg" class="d-block w-100" alt="Коровка">
+                              </div>
+
+                              <div class="carousel-item">
+                                <img src="/assets/photos/farm.jpg" class="d-block w-100" alt="Колхоз">
+                              </div>
+
+                              <div class="carousel-item">
+                                <img src="/assets/photos/field.jpg" class="d-block w-100" alt="Поле">
+                              </div>
+
+                            </div>
+                            
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Previous</span>
+                            </a>
+
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Next</span>
+                            </a>
+                            
+                        </div>
+                        <!-- /Карусель с фотографиями -->
+
+                        <strong class="poetry">
+                            Сердце радуют первые всходы <br>
+                            <br>
+                            Без надежды нам нечего жить, <br>
+                            <br>
+                            Есть такая на свете работа- <br>
+                            <br>
+                            Дорогую Отчизну кормить.
+                        </strong>
+
+                        <br><br>
+
+                        <p>
+                            &nbsp;&nbsp;Колхоз «Урал» крупное рентабельное сельскохозяйственное предприятие. Землепользование хозяйства более 20000 га, протяженность более 40 км. Число работающих 600 человек. Основное производственное направление – молочное, вспомогательная отрасль – мясная.
+                        </p>
+
+                        <p>
+                            &nbsp;&nbsp;Колхоз «Урал» несколько лет является участником элитного клуба «Агро-300», «Молоко-100». По результатам работы в молочном животноводстве хозяйство неоднократно награждалось дипломами, Почетными грамотами Правительством области.
+                        </p>
+
+                        <p>
+                            &nbsp;&nbsp;По результатам рейтинговых расчетов Всеросийского института аграрных проблем и информации РАСХН и РосАгрофонда колхоз «Урал» ряд лет назван в числе лучших 100 хозяйств по производству молока и в числе 300 хозяйств по всем показателям.
+                        </p>
+
+                        <p>
+                            &nbsp;&nbsp;Собственный Цех по переработке молока даёт Свердловской области и соседним регионам, пакетированное молоко и сливочное масло высокого качества и по низкой цене.
+                        </p>
+
+                        <p>
+                            &nbsp;&nbsp;С 2010 года хозяйство имеет статус Племенного завода по разведению крупного рогатого скота черно – пестрой породы.
+                        </p>
+
+                        <p>
+                            &nbsp;&nbsp;Ежегодно увеличиваются инвестиции в развитие  хозяйства, неуклонно наращиваются объемы производства. Динамично развивается молочное животноводство, имеется свой цех переработки молока. Произведенная продукция реализуется в основном на территории Свердловской области.  Высокое качество продукции  делает ее востребованной и конкурентно способной. В отрасли растениеводства присоединяются дополнительные посевные площади, на полях   работает современная техника, высока культура земледелия.
+                        </p>
+
+                        <p>
+                            &nbsp;&nbsp;Практически завершен перевод скотных дворов на беспривязное содержание молодняка, силами своей строительной бригады производится реконструкция корпусов для дойного стада.
+                        </p>
+
+                        <p>
+                            &nbsp;&nbsp;Мы  надежные партнеры  отечественных и зарубежных фирм, специализирующихся  на поставках молочного оборудования, сельскохозяйственной техники, ядохимикатов и ветеринарных препаратов.
+                        </p>
+
+                        <p>
+                            &nbsp;&nbsp;Перспективу развития хозяйство видит в увеличении поголовья и продуктивности животных на основе улучшения качества кормления, селекционной работы, содержания животных,  применении новых технологий в развитии производства, дисциплины труда, учебе кадров. Кадры решают всё.
+                        </p>
+
+                    </article>
+                </div>
+
+            </div>
             <!-- /Панель с основной информацией -->
 
             <!-- Футер -->

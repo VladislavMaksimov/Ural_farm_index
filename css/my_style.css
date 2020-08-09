@@ -26,8 +26,8 @@ div, body, p {
   display: grid;
   -ms-grid-columns: 2fr 8fr;
       grid-template-columns: 2fr 8fr;
-  -ms-grid-rows: 4fr 1fr 20fr 2fr;
-      grid-template-rows: 4fr 1fr 20fr 2fr;
+  -ms-grid-rows: 3fr 1fr 18fr 2fr;
+      grid-template-rows: 3fr 1fr 18fr 2fr;
   padding: 1% 5% 0 5%;
   /* Хэдер */
   /* Панель навигации */
@@ -135,7 +135,7 @@ div, body, p {
 
 .page .side-bar > * {
   margin-bottom: 10%;
-  width: 100%;
+  width: 95%;
 }
 
 .page .side-bar .production {
@@ -160,30 +160,34 @@ div, body, p {
   /* Большие отступы по бокам */
   padding: 5% 1% 5% 1%;
   color: white;
-  /* Внутренний текст только из заглавных букв    */
+  /* Внутренний текст только из заглавных букв */
+  text-decoration: underline;
 }
 
 .page .side-bar .production .our-prod span {
   text-transform: uppercase;
 }
 
-.page .side-bar .production .our-prod a:hover {
+.page .side-bar .production .our-prod:hover {
   text-decoration: none;
 }
 
 .page .side-bar .production .list-prod {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
-  -ms-grid-rows: (1fr)[4];
-      grid-template-rows: repeat(4, 1fr);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   height: 100%;
   background-color: white;
   border: 1px solid #82b501;
   border-radius: 0 0 1vw 1vw;
-  padding-left: 10%;
-  padding: 2%;
+  padding: 0 3% 3% 5%;
 }
 
 .page .side-bar .production .list-prod a {
@@ -193,6 +197,7 @@ div, body, p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  min-height: 3.5vw;
   text-decoration: underline;
   color: black;
 }
@@ -221,7 +226,7 @@ div, body, p {
   /* Большие отступы по бокам */
   padding: 5% 1% 5% 1%;
   color: white;
-  /* Внутренний текст только из заглавных букв    */
+  /* Внутренний текст только из заглавных букв */
   cursor: pointer;
   background-color: #009600;
   border-radius: 1vw;
@@ -236,7 +241,7 @@ div, body, p {
 }
 
 .page .main {
-  padding: 2vw 0 2% 2%;
+  padding: 2vw 0 2vw 0;
 }
 
 .page .main .content {

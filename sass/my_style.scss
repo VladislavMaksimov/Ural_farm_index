@@ -37,7 +37,7 @@ div, body, p {
     /* Структура страницы */
     display: grid; 
     grid-template-columns: 2fr 8fr;
-    grid-template-rows: 4fr 1fr 20fr 2fr;
+    grid-template-rows: 3fr 1fr 18fr 2fr;
     padding: 1% 5% 0 5%;
 
     // Миксин: строка по всей ширине грида
@@ -112,7 +112,7 @@ div, body, p {
         
         &>* {
             margin-bottom: 10%;
-            width: 100%;
+            width: 95%;
         }
 
         // Миксин: иконка с текстом
@@ -125,7 +125,7 @@ div, body, p {
 
             color: white;
             
-            /* Внутренний текст только из заглавных букв    */
+            /* Внутренний текст только из заглавных букв */
             span {
                 text-transform: uppercase;
             }
@@ -141,27 +141,28 @@ div, body, p {
                 border-radius: 1vw 1vw 0 0;
 
                 @include bar-plus-text();
-
-                a:hover {
-                    text-decoration: none;
+                text-decoration: underline;
+                
+                &:hover {
+                    text-decoration: none ;
                 }
             }
 
             /* Список продукции */
             .list-prod {
-                display: grid;
-                grid-template-columns: 1fr;
-                grid-template-rows: repeat(4, 1fr);
-
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                
                 height: 100%;
                 background-color: white;
                 border: 1px solid #82b501;
                 border-radius: 0 0 1vw 1vw;
-                padding-left: 10%;
-                padding: 2%;
+                padding: 0 3% 3% 5%;
 
                 a {
                     @include flex-center-vertical();
+                    min-height: 3.5vw;
                     text-decoration: underline;
                     color: black;
                 }
@@ -195,7 +196,7 @@ div, body, p {
     }
 
     .main {
-        padding: 2vw 0 2% 2%;
+        padding: 2vw 0 2vw 0;
 
         .content {
             height: 100%;

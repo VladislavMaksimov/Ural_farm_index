@@ -195,9 +195,11 @@ div, body, p {
         }
     }
 
+    /* Слой с основной информацией о колхозе */
     .main {
         padding: 2vw 0 2vw 0;
 
+        /* Основная информация */
         .content {
             height: 100%;
             background-color: white;
@@ -205,12 +207,14 @@ div, body, p {
             border: solid #009600 1px;
             padding: 2%;
 
+            /* Заголовок */
             h1 {
                 font-weight: normal;
                 text-transform: uppercase;
                 color: #009600;
             }
 
+            /* Карусель с фотографиями */
             .photos {
                 border-top: solid #009600 4px;
                 border-bottom: solid #009600 4px;
@@ -218,11 +222,13 @@ div, body, p {
                 margin-bottom: 2%;
             }
 
+            /* Значки "предыдущая" и "следующая" в карусели */
             i.fas {
                 color: #edebeb;
                 font-size: 3vw;
             }
 
+            /* Стих */
             .poetry {
                 color: #99cc00;
             }

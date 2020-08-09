@@ -37,7 +37,7 @@ div, body, p {
     /* Структура страницы */
     display: grid; 
     grid-template-columns: 2fr 8fr;
-    grid-template-rows: 3fr 1fr 18fr 1.5fr;
+    grid-template-rows: 3fr 1fr auto 1.5fr;
     padding: 1% 5% 0 5%;
 
     // Миксин: строка по всей ширине грида
@@ -59,8 +59,8 @@ div, body, p {
 
         /* Логотип колхоза */
         img {
-            height: 209px;
-            width: 240px;
+            max-height: 100%;
+            max-width: 100%;
         }
 
         /* Блоки адреса и контактов */
@@ -91,6 +91,7 @@ div, body, p {
     /* Панель навигации */
     .nav {
         @include row();
+        flex-wrap: wrap;
         padding: 2%;        
         background-color: #05afdf;
         /* Убирает буллиты */
@@ -240,5 +241,75 @@ div, body, p {
         /* Те же стили, что у хэдера*/
         @extend .header;
         background-color: #b3cff2;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .page {
+        grid-template-columns: 1fr;
+        grid-template-rows: 30vw auto auto auto auto;
+
+        .header {
+            grid-column: 1/2;
+
+            &>div {
+                display: none;
+            }
+        }
+
+        .nav {
+            grid-column: 1/2;
+            justify-content: space-evenly;
+
+            &>li {
+                border: 1px solid white;
+                border-radius: 1vw;
+                padding: 1%;
+            }
+        }
+
+        .side-bar {
+            grid-row: 4 / 5;
+            
+            img {
+                display: none;
+            }
+
+            .production, .callback {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 2%;
+                justify-content: center;
+            }
+
+            .production {
+                .list-prod {
+                    a {
+                        text-align: center;
+                        justify-content: center;
+                    }
+                }
+            }
+
+            .callback {
+                text-decoration: underline;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .footer {
+            grid-column: 1/2;
+            
+            &>div {
+                display: flex;
+                
+                span {
+                    font-size: 2.5vw;
+                }
+            }
+        }
     }
 }

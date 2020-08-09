@@ -26,8 +26,8 @@ div, body, p {
   display: grid;
   -ms-grid-columns: 2fr 8fr;
       grid-template-columns: 2fr 8fr;
-  -ms-grid-rows: 3fr 1fr 18fr 2fr;
-      grid-template-rows: 3fr 1fr 18fr 2fr;
+  -ms-grid-rows: 3fr 1fr 18fr 1.5fr;
+      grid-template-rows: 3fr 1fr 18fr 1.5fr;
   padding: 1% 5% 0 5%;
   /* Хэдер */
   /* Панель навигации */

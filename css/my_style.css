@@ -127,14 +127,15 @@ div, body, p {
 }
 
 .page .side-bar {
+  padding-top: 2vw;
   /* Блок продукции */
   /* Прогноз погоды */
   /* Заказать звонок */
 }
 
 .page .side-bar > * {
-  margin-top: 10%;
-  width: 90%;
+  margin-bottom: 10%;
+  width: 100%;
 }
 
 .page .side-bar .production {
@@ -146,7 +147,28 @@ div, body, p {
   background-color: #82b501;
   border: 1px solid #82b501;
   border-radius: 1vw 1vw 0 0;
-  padding: 2%;
+  /* Центрируется по вертикали */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  /* Большие отступы по бокам */
+  padding: 5% 1% 5% 1%;
+  color: white;
+  /* Внутренний текст только из заглавных букв    */
+}
+
+.page .side-bar .production .our-prod span {
+  text-transform: uppercase;
+}
+
+.page .side-bar .production .our-prod a:hover {
+  text-decoration: none;
 }
 
 .page .side-bar .production .list-prod {
@@ -198,11 +220,11 @@ div, body, p {
           justify-content: space-evenly;
   /* Большие отступы по бокам */
   padding: 5% 1% 5% 1%;
-  background-color: #009600;
-  border-radius: 1vw;
-  cursor: pointer;
   color: white;
   /* Внутренний текст только из заглавных букв    */
+  cursor: pointer;
+  background-color: #009600;
+  border-radius: 1vw;
 }
 
 .page .side-bar .callback span {
@@ -214,7 +236,7 @@ div, body, p {
 }
 
 .page .main {
-  padding: 2%;
+  padding: 2vw 0 2% 2%;
 }
 
 .page .main .content {
@@ -229,6 +251,18 @@ div, body, p {
   font-weight: normal;
   text-transform: uppercase;
   color: #009600;
+}
+
+.page .main .content .photos {
+  border-top: solid #009600 4px;
+  border-bottom: solid #009600 4px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.page .main .content i.fas {
+  color: #edebeb;
+  font-size: 3vw;
 }
 
 .page .main .content .poetry {

@@ -85,32 +85,34 @@ div, body, p {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-column: 1 / span 2;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[8];
+      grid-template-columns: repeat(8, 1fr);
   border-radius: 1vw;
+  padding: 2%;
+  background-color: #05afdf;
+  list-style-type: none;
+}
+
+.page .nav li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  padding: 2%;
-  background-color: #05afdf;
-  list-style-type: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.page .nav a {
+.page .nav li a {
   color: white;
   text-decoration: underline;
 }
 
-.page .nav a:hover {
+.page .nav li a:hover {
   text-decoration: none;
 }
 
@@ -260,7 +262,6 @@ div, body, p {
     height: 167px;
   }
   .page .nav > li {
-    border: 1px solid white;
     border-radius: 1vw;
     padding: 1%;
   }
@@ -275,21 +276,25 @@ div, body, p {
 }
 
 @media only screen and (max-width: 640px) {
-  .page {
+  #background {
+    width: 640px;
+  }
+  #background .page {
+    padding: 1% 2% 0 2%;
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
     -ms-grid-rows: 210px auto auto auto auto;
         grid-template-rows: 210px auto auto auto auto;
   }
-  .page .header, .page .footer {
+  #background .page .header, #background .page .footer {
     -ms-grid-column: 1;
     -ms-grid-column-span: 1;
     grid-column: 1/2;
   }
-  .page .header > div, .page .footer > div {
+  #background .page .header > div, #background .page .footer > div {
     display: none;
   }
-  .page .nav {
+  #background .page .nav {
     -ms-grid-column: 1;
     -ms-grid-column-span: 1;
     grid-column: 1/2;
@@ -297,15 +302,15 @@ div, body, p {
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
   }
-  .page .side-bar {
+  #background .page .side-bar {
     -ms-grid-row: 4;
     -ms-grid-row-span: 1;
     grid-row: 4 / 5;
   }
-  .page .side-bar img {
+  #background .page .side-bar img {
     display: none;
   }
-  .page .side-bar .production, .page .side-bar .callback {
+  #background .page .side-bar .production, #background .page .side-bar .callback {
     width: 100%;
     margin-right: 0;
     margin-bottom: 2%;
@@ -313,29 +318,29 @@ div, body, p {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .page .side-bar .production .list-prod a {
+  #background .page .side-bar .production .list-prod a {
     text-align: center;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .page .side-bar .callback {
+  #background .page .side-bar .callback {
     text-decoration: underline;
   }
-  .page .side-bar .callback:hover {
+  #background .page .side-bar .callback:hover {
     text-decoration: none;
   }
-  .page .footer {
+  #background .page .footer {
     -ms-grid-column: 1;
     -ms-grid-column-span: 1;
     grid-column: 1/2;
   }
-  .page .footer > div {
+  #background .page .footer > div {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
-  .page .footer > div span {
+  #background .page .footer > div span {
     font-size: 2.5vw;
   }
 }

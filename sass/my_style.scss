@@ -1,5 +1,6 @@
 // Значения по умолчанию
 $background-url: "/assets/background/background.jpg";
+$nav-count: 8;
 
 // Миксин: центрирование по вертикали
 @mixin flex-center-vertical {
@@ -90,20 +91,29 @@ div, body, p {
 
     // Панель навигации 
     .nav {
-        @include row();
-        flex-wrap: wrap;
+        grid-column: 1 / span 2;
+        display: grid;
+        grid-template-columns: repeat($nav-count, 1fr);
+
+        border-radius: 1vw;
         padding: 2%;        
         background-color: #05afdf;
         // Убирает буллиты 
         list-style-type: none;
 
-        a {
-            color: white;
-            text-decoration: underline;
-        }
+        li {
 
-        a:hover {
-            text-decoration: none;
+            @include flex-center();
+        
+            a {
+                color: white;
+                text-decoration: underline;
+            }
+
+            a:hover {
+                text-decoration: none;
+            }
+
         }
     }
 
@@ -265,7 +275,6 @@ div, body, p {
         .nav {
             // Вокруг элементов навигации возникают границы
             &>li {
-                border: 1px solid white;
                 border-radius: 1vw;
                 padding: 1%;
             }
@@ -290,75 +299,81 @@ div, body, p {
 
 // Медиазапрос: экраны до 640px
 @media only screen and (max-width: 640px) {
-    .page {
-        // Теперь колонка только одна
-        grid-template-columns: 1fr;
-        // Хэдер с лого зависит от ширины экрана, остальные рассчитываются автоматически
-        grid-template-rows: 210px auto auto auto auto;
+    #background {
+        width: 640px;
 
-        // Хэдер
-        .header {
-            grid-column: 1/2;
+        .page {
+            padding: 1% 2% 0 2%;
 
-            // Всё, кроме лого, пропадает
-            &>div {
-                display: none;
-            }
-        }
+            // Теперь колонка только одна
+            grid-template-columns: 1fr;
+            // Хэдер с лого зависит от ширины экрана, остальные рассчитываются автоматически
+            grid-template-rows: 210px auto auto auto auto;
 
-        // Панель навигации
-        .nav {
-            grid-column: 1/2;
-            justify-content: space-evenly;
-        }
+            // Хэдер
+            .header {
+                grid-column: 1/2;
 
-        // Панель с побочной информацией 
-        .side-bar {
-            grid-row: 4 / 5;
-            
-            // Все картинки пропадают
-            img {
-                display: none;
-            }
-
-            // Блоки продукции и звонка занимают всю ширину контейнера, их содержимое центрируется
-            .production, .callback {
-                width: 100%;
-                margin-right: 0;
-                margin-bottom: 2%;
-                justify-content: center;
-            }
-
-            // Ссылки в списке продуктов центрируются
-            .production {
-                .list-prod {
-                    a {
-                        text-align: center;
-                        justify-content: center;
-                    }
-                } 
-            }
-
-            // Ссылка в блоке звонка приводится к виду ссылки в our-prod
-            .callback {
-                text-decoration: underline;
-
-                &:hover {
-                    text-decoration: none;
+                // Всё, кроме лого, пропадает
+                &>div {
+                    display: none;
                 }
             }
-        }
 
-        // Футер
-        .footer {
-            grid-column: 1/2;
-            
-            // Блоки не пропадают
-            &>div {
-                display: flex;
+            // Панель навигации
+            .nav {
+                grid-column: 1/2;
+                justify-content: space-evenly;
+            }
+
+            // Панель с побочной информацией 
+            .side-bar {
+                grid-row: 4 / 5;
                 
-                span {
-                    font-size: 2.5vw;
+                // Все картинки пропадают
+                img {
+                    display: none;
+                }
+
+                // Блоки продукции и звонка занимают всю ширину контейнера, их содержимое центрируется
+                .production, .callback {
+                    width: 100%;
+                    margin-right: 0;
+                    margin-bottom: 2%;
+                    justify-content: center;
+                }
+
+                // Ссылки в списке продуктов центрируются
+                .production {
+                    .list-prod {
+                        a {
+                            text-align: center;
+                            justify-content: center;
+                        }
+                    } 
+                }
+
+                // Ссылка в блоке звонка приводится к виду ссылки в our-prod
+                .callback {
+                    text-decoration: underline;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            // Футер
+            .footer {
+                grid-column: 1/2;
+                
+                // Блоки не пропадают
+                &>div {
+                    display: flex;
+                    
+                    span {
+                        font-size: 2.5vw;
+                    }
                 }
             }
         }

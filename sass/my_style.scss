@@ -91,19 +91,16 @@ div, body, p {
 
     // Панель навигации 
     .nav {
-        grid-column: 1 / span 2;
-        display: grid;
-        grid-template-columns: repeat($nav-count, 1fr);
+        @include row();
 
-        border-radius: 1vw;
-        padding: 2%;        
+        border-radius: 1vw;     
         background-color: #05afdf;
         // Убирает буллиты 
         list-style-type: none;
 
         li {
-
             @include flex-center();
+            text-align: center;
         
             a {
                 color: white;
@@ -273,6 +270,10 @@ div, body, p {
 
         // Панель навигации
         .nav {
+            display: grid;
+            grid-template-columns: repeat($nav-count / 2, 1fr);
+            grid-template-rows: auto auto;
+
             // Вокруг элементов навигации возникают границы
             &>li {
                 border-radius: 1vw;
@@ -300,6 +301,7 @@ div, body, p {
 // Медиазапрос: экраны до 640px
 @media only screen and (max-width: 640px) {
     #background {
+        // Бэк не становится меньше величины экрана
         width: 640px;
 
         .page {

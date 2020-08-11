@@ -17,13 +17,29 @@ div, body, p {
   z-index: -100;
 }
 
+#goTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  display: none;
+  z-index: 100;
+  background-color: rgba(124, 120, 120, 0.2);
+  width: 36px;
+  height: 33px;
+}
+
+#goTop:hover {
+  background-color: #7c7878;
+}
+
 .page {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 240px auto;
       grid-template-columns: 240px auto;
-  -ms-grid-rows: 3fr 1fr auto 1.5fr;
-      grid-template-rows: 3fr 1fr auto 1.5fr;
+  -ms-grid-rows: auto 0.5fr auto 1fr;
+      grid-template-rows: auto 0.5fr auto 1fr;
   padding: 1% 5% 0 5%;
 }
 
@@ -49,8 +65,8 @@ div, body, p {
 }
 
 .page .header img, .page .footer img {
-  max-height: 100%;
-  max-width: 100%;
+  max-height: 146px;
+  max-width: 168px;
 }
 
 .page .header div, .page .footer div {

@@ -33,12 +33,29 @@ div, body, p {
     z-index: -100;
 }
 
+// Кнопка "Наверх"
+#goTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    display: none;
+    z-index: 100;
+    background-color: rgba($color: #7c7878, $alpha: 0.2);
+    width: 36px;
+    height: 33px;
+}
+
+#goTop:hover {
+    background-color: rgba($color: #7c7878, $alpha: 1.0);
+}
+
 // Слой, на котором расположены другие элементы 
 .page {
     // Структура страницы 
     display: grid; 
     grid-template-columns: 240px auto;
-    grid-template-rows: 3fr 1fr auto 1.5fr;
+    grid-template-rows: auto 0.5fr auto 1fr;
     padding: 1% 5% 0 5%;
 
     // Миксин: строка по всей ширине грида
@@ -60,8 +77,8 @@ div, body, p {
 
         // Логотип колхоза 
         img {
-            max-height: 100%;
-            max-width: 100%;
+            max-height: 146px;
+            max-width: 168px;
         }
 
         // Блоки адреса и контактов 

@@ -215,8 +215,8 @@ div, body, p {
             border: solid #009600 1px;
             padding: 2%;
 
-            // Заголовок 
-            h1 {
+            // Заголовки 
+            h1, h2 {
                 font-weight: normal;
                 text-transform: uppercase;
                 color: #009600;
@@ -239,6 +239,43 @@ div, body, p {
             // Стих 
             .poetry {
                 color: #99cc00;
+            }
+
+            // Заголовок с иконкой
+            .icon-heading {
+                display: flex;
+                align-items: baseline;
+
+                // Иконки
+                .icon {
+                    margin-right: 2%;
+                }
+            }
+
+            // Блоки с партнёрами и достижениями
+            .gallery {
+                @include flex-center-vertical();
+                justify-content: left;
+                flex-wrap: wrap;
+            }
+
+            // Достижение, партнёр
+            .gallery-unit {
+                max-width: 150px;
+                font-size: 0.9em;
+                padding: 0.7em;
+                margin-right: 1em;
+                border: 1px solid #dddddd;
+                cursor: default;
+                text-align: center;
+
+                &:hover {
+                    border: 1px solid #009600;
+                }
+
+                img {
+                    max-width: 100%;
+                }
             }
         }
     }
@@ -278,6 +315,17 @@ div, body, p {
             &>li {
                 border-radius: 1vw;
                 padding: 1%;
+            }
+        }
+
+        // Панель с главной информаципй
+        .main {
+            .content {
+                // У достижений/партнёров уменьшаются внутренние и внешние отступы
+                .gallery-unit {
+                    padding: 0.5em;
+                    margin-right: 0.7em;
+                }
             }
         }
 

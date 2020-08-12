@@ -4,445 +4,541 @@ $nav-count: 8;
 
 // Миксин: центрирование по вертикали
 @mixin flex-center-vertical {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 // Миксин: центрирование по вертикали и горизонтали
 @mixin flex-center {
-    @include flex-center-vertical();
-    justify-content: center 
+  @include flex-center-vertical();
+  justify-content: center;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-div, body, p {
-    box-sizing: border-box;
+div,
+body,
+p {
+  box-sizing: border-box;
 }
 
-// Фон 
+// Фон
 #background {
-    height: 100%;
-    background: url($background-url) no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    z-index: -100;
+  height: 100%;
+  background: url($background-url) no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: -100;
 }
 
 // Кнопка "Наверх"
 #goTop {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    cursor: pointer;
-    display: none;
-    z-index: 100;
-    background-color: rgba($color: #7c7878, $alpha: 0.2);
-    width: 36px;
-    height: 33px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  display: none;
+  z-index: 100;
+  background-color: rgba($color: #7c7878, $alpha: 0.2);
+  width: 36px;
+  height: 33px;
 }
 
 #goTop:hover {
-    background-color: rgba($color: #7c7878, $alpha: 1.0);
+  background-color: rgba($color: #7c7878, $alpha: 1);
 }
 
-// Слой, на котором расположены другие элементы 
+// Слой, на котором расположены другие элементы
 .page {
-    // Структура страницы 
-    display: grid; 
-    grid-template-columns: 240px auto;
-    grid-template-rows: auto 0.5fr auto 1fr;
-    padding: 1% 5% 0 5%;
+  // Структура страницы
+  display: grid;
+  grid-template-columns: 240px auto;
+  grid-template-rows: auto 0.5fr auto 1fr;
+  padding: 1% 5% 0 5%;
 
-    // Миксин: строка по всей ширине грида
-    @mixin row {
-        grid-column: 1 / span 2;
-        border-radius: 1vw;
+  // Миксин: строка по всей ширине грида
+  @mixin row {
+    grid-column: 1 / span 2;
+    border-radius: 1vw;
 
+    @include flex-center-vertical();
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  // Хэдер
+  .header {
+    @include row();
+
+    background-color: #b3cff2;
+    padding: 2%;
+
+    // Логотип колхоза
+    img {
+      max-height: 146px;
+      max-width: 168px;
+    }
+
+    // Блоки адреса и контактов
+    div {
+      // Занимают всю высоту хэдера
+      height: 100%;
+      // 5 блоков по 20% каждый
+      width: 20%;
+      // Контент центрирован
+      @include flex-center();
+      font-size: 1.2em;
+
+      address {
+        font-style: normal;
+      }
+
+      a {
+        color: black;
+        text-decoration: underline;
+      }
+
+      a:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  // Панель навигации
+  .nav {
+    @include row();
+
+    border-radius: 1vw;
+    background-color: #05afdf;
+    // Убирает буллиты
+    list-style-type: none;
+
+    li {
+      @include flex-center();
+      text-align: center;
+
+      a {
+        color: white;
+        text-decoration: underline;
+      }
+
+      a:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  // Панель с побочной информацией
+  .side-bar {
+    padding-top: 2vw;
+
+    & > * {
+      margin-bottom: 10%;
+      width: 95%;
+    }
+
+    // Миксин: иконка с текстом
+    @mixin bar-plus-text {
+      // Центрируется по вертикали
+      @include flex-center-vertical();
+      justify-content: space-evenly;
+      // Большие отступы по бокам
+      padding: 5% 1% 5% 1%;
+
+      color: white;
+
+      // Внутренний текст только из заглавных букв
+      span {
+        text-transform: uppercase;
+      }
+    }
+
+    // Блок продукции
+    .production {
+      // Шапка блока
+      .our-prod {
+        background-color: #82b501;
+        border: 1px solid #82b501;
+        border-radius: 1vw 1vw 0 0;
+
+        @include bar-plus-text();
+        text-decoration: underline;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      // Список продукции
+      .list-prod {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        height: 230px;
+        background-color: white;
+        border: 1px solid #82b501;
+        border-radius: 0 0 1vw 1vw;
+        padding: 0 3% 3% 5%;
+
+        a {
+          @include flex-center-vertical();
+          min-height: 3.5vw;
+          text-decoration: underline;
+          color: black;
+        }
+
+        a:hover {
+          text-decoration: none;
+        }
+      }
+    }
+
+    // Прогноз погоды
+    img {
+      // Блочное отображение - убирает лишние отступы
+      display: block;
+      cursor: pointer;
+    }
+
+    // Заказать звонок
+    .callback {
+      @include bar-plus-text();
+
+      cursor: pointer;
+
+      background-color: #009600;
+      border-radius: 1vw;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // Слой с основной информацией о колхозе
+  .main {
+    padding: 2vw 0 2vw 0;
+
+    // Основная информация
+    .content {
+      height: 100%;
+      background-color: white;
+      border-radius: 1vw;
+      border: solid #009600 1px;
+      padding: 2%;
+
+      // Заголовки
+      h1,
+      h2 {
+        font-weight: normal;
+        text-transform: uppercase;
+        color: #009600;
+      }
+
+      // Карусель с фотографиями
+      .photos {
+        border-top: solid #009600 4px;
+        border-bottom: solid #009600 4px;
+        margin-top: 2%;
+        margin-bottom: 2%;
+      }
+
+      // Значки "предыдущая" и "следующая" в карусели
+      i.fas {
+        color: #edebeb;
+        font-size: 3vw;
+      }
+
+      // Стих
+      .poetry {
+        color: #99cc00;
+      }
+
+      // Заголовок с иконкой
+      .icon-heading {
+        display: flex;
+        align-items: baseline;
+
+        // Иконки
+        .icon {
+          margin-right: 2%;
+        }
+      }
+
+      // Блоки с партнёрами и достижениями
+      .gallery {
         @include flex-center-vertical();
-        flex-direction: row;
-        justify-content: space-around;
-    }
+        justify-content: left;
+        flex-wrap: wrap;
+      }
 
-    // Хэдер 
-    .header {
-        @include row();
+      // Достижение, партнёр
+      .gallery-unit {
+        max-width: 150px;
+        font-size: 0.9em;
+        padding: 0.7em;
+        margin-right: 1em;
+        border: 1px solid #dddddd;
+        cursor: default;
+        text-align: center;
 
-        background-color: #b3cff2;
-        padding: 2%;
+        &:hover {
+          border: 1px solid #009600;
+        }
 
-        // Логотип колхоза 
         img {
-            max-height: 146px;
-            max-width: 168px;
+          max-width: 100%;
         }
-
-        // Блоки адреса и контактов 
-        div {
-            // Занимают всю высоту хэдера 
-            height: 100%;
-            // 5 блоков по 20% каждый
-            width: 20%;
-            // Контент центрирован 
-            @include flex-center();
-            font-size: 1.2em;
-
-            address {
-                font-style: normal;
-            }
-
-            a {
-                color: black;
-                text-decoration: underline;
-            }
-
-            a:hover {
-                text-decoration: none;
-            }
-        }
+      }
     }
+  }
 
-    // Панель навигации 
-    .nav {
-        @include row();
-
-        border-radius: 1vw;     
-        background-color: #05afdf;
-        // Убирает буллиты 
-        list-style-type: none;
-
-        li {
-            @include flex-center();
-            text-align: center;
-        
-            a {
-                color: white;
-                text-decoration: underline;
-            }
-
-            a:hover {
-                text-decoration: none;
-            }
-
-        }
-    }
-
-    // Панель с побочной информацией 
-    .side-bar {
-        padding-top: 2vw;
-        
-        &>* {
-            margin-bottom: 10%;
-            width: 95%;
-        }
-
-        // Миксин: иконка с текстом
-        @mixin bar-plus-text {
-            // Центрируется по вертикали 
-            @include flex-center-vertical();
-            justify-content: space-evenly;
-            // Большие отступы по бокам 
-            padding: 5% 1% 5% 1%;
-
-            color: white;
-            
-            // Внутренний текст только из заглавных букв 
-            span {
-                text-transform: uppercase;
-            }
-        }
-
-        // Блок продукции 
-        .production {
-
-            // Шапка блока 
-            .our-prod {
-                background-color: #82b501;
-                border: 1px solid #82b501;
-                border-radius: 1vw 1vw 0 0;
-
-                @include bar-plus-text();
-                text-decoration: underline;
-                
-                &:hover {
-                    text-decoration: none ;
-                }
-            }
-
-            // Список продукции 
-            .list-prod {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-evenly;
-                
-                height: 230px;
-                background-color: white;
-                border: 1px solid #82b501;
-                border-radius: 0 0 1vw 1vw;
-                padding: 0 3% 3% 5%;
-
-                a {
-                    @include flex-center-vertical();
-                    min-height: 3.5vw;
-                    text-decoration: underline;
-                    color: black;
-                }
-
-                a:hover {
-                    text-decoration: none;
-                }
-            }
-        }
-
-        // Прогноз погоды 
-        img {
-            // Блочное отображение - убирает лишние отступы 
-            display: block;
-            cursor: pointer;
-        }
-
-        // Заказать звонок 
-        .callback {
-            @include bar-plus-text();
-
-            cursor: pointer;
-
-            background-color: #009600;
-            border-radius: 1vw;
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-    }
-
-    // Слой с основной информацией о колхозе 
-    .main {
-        padding: 2vw 0 2vw 0;
-
-        // Основная информация 
-        .content {
-            height: 100%;
-            background-color: white;
-            border-radius: 1vw;
-            border: solid #009600 1px;
-            padding: 2%;
-
-            // Заголовки 
-            h1, h2 {
-                font-weight: normal;
-                text-transform: uppercase;
-                color: #009600;
-            }
-
-            // Карусель с фотографиями 
-            .photos {
-                border-top: solid #009600 4px;
-                border-bottom: solid #009600 4px;
-                margin-top: 2%;
-                margin-bottom: 2%;
-            }
-
-            // Значки "предыдущая" и "следующая" в карусели 
-            i.fas {
-                color: #edebeb;
-                font-size: 3vw;
-            }
-
-            // Стих 
-            .poetry {
-                color: #99cc00;
-            }
-
-            // Заголовок с иконкой
-            .icon-heading {
-                display: flex;
-                align-items: baseline;
-
-                // Иконки
-                .icon {
-                    margin-right: 2%;
-                }
-            }
-
-            // Блоки с партнёрами и достижениями
-            .gallery {
-                @include flex-center-vertical();
-                justify-content: left;
-                flex-wrap: wrap;
-            }
-
-            // Достижение, партнёр
-            .gallery-unit {
-                max-width: 150px;
-                font-size: 0.9em;
-                padding: 0.7em;
-                margin-right: 1em;
-                border: 1px solid #dddddd;
-                cursor: default;
-                text-align: center;
-
-                &:hover {
-                    border: 1px solid #009600;
-                }
-
-                img {
-                    max-width: 100%;
-                }
-            }
-        }
-    }
-
-    // Футер 
-    .footer {
-        // Те же стили, что у хэдера
-        @extend .header;
-        background-color: #b3cff2;
-    }
+  // Футер
+  .footer {
+    // Те же стили, что у хэдера
+    @extend .header;
+    background-color: #b3cff2;
+  }
 }
 
-// Медиазапрос: экраны до 992px
-@media only screen and (max-width: 992px) {
-    .page {
-        // Хэдер
-        .header{
-            // Исчезает адрес
-            div:nth-child(2) {
-                display: none;
-            }
+// Медиазапрос: экраны до 991px
+@media only screen and (max-width: 991px) {
+  .page {
+    // Хэдер
+    .header {
+      // Исчезает адрес
+      div:nth-child(2) {
+        display: none;
+      }
 
-            // Уменьшается логотип
-            img {
-                width: 192px;
-                height: 167px;
-            }
-        }
-
-        // Панель навигации
-        .nav {
-            display: grid;
-            grid-template-columns: repeat($nav-count / 2, 1fr);
-            grid-template-rows: auto auto;
-
-            // Вокруг элементов навигации возникают границы
-            &>li {
-                border-radius: 1vw;
-                padding: 1%;
-            }
-        }
-
-        // Панель с главной информаципй
-        .main {
-            .content {
-                // У достижений/партнёров уменьшаются внутренние и внешние отступы
-                .gallery-unit {
-                    padding: 0.5em;
-                    margin-right: 0.7em;
-                }
-            }
-        }
-
-        // Футер
-        .footer {
-            // Второй элемент не исчезает
-            div:nth-child(2) {
-                display: flex;
-            }
-
-            // Текст изменяется в зависимости от ширины экрана
-            div {
-                span {
-                    font-size: 2vw;
-                }
-            }
-        }
+      // Уменьшается логотип
+      img {
+        width: 192px;
+        height: 167px;
+      }
     }
+
+    // Панель навигации
+    .nav {
+      display: grid;
+      grid-template-columns: repeat($nav-count / 2, 1fr);
+      grid-template-rows: auto auto;
+
+      // Вокруг элементов навигации возникают границы
+      & > li {
+        border-radius: 1vw;
+        padding: 1%;
+      }
+    }
+
+    // Панель с главной информаципй
+    .main {
+      .content {
+        // У достижений/партнёров уменьшаются внутренние и внешние отступы
+        .gallery-unit {
+          padding: 0.5em;
+          margin-right: 0.7em;
+        }
+      }
+    }
+
+    // Футер
+    .footer {
+      // Второй элемент не исчезает
+      div:nth-child(2) {
+        display: flex;
+      }
+
+      // Текст изменяется в зависимости от ширины экрана
+      div {
+        span {
+          font-size: 2vw;
+        }
+      }
+    }
+  }
 }
 
 // Медиазапрос: экраны до 640px
 @media only screen and (max-width: 640px) {
-    #background {
-        // Бэк не становится меньше величины экрана
-        width: 640px;
+  // Кнопка увеличивается
+  #goTop {
+    height: 44px;
+    width: 44px;
+  }
 
-        .page {
-            padding: 1% 2% 0 2%;
+  #background {
+    // Бэк не становится меньше величины экрана
+    width: 640px;
+  }
 
-            // Теперь колонка только одна
-            grid-template-columns: 1fr;
-            // Хэдер с лого зависит от ширины экрана, остальные рассчитываются автоматически
-            grid-template-rows: 210px auto auto auto auto;
+  .page {
+    padding: 1% 2% 0 2%;
 
-            // Хэдер
-            .header {
-                grid-column: 1/2;
+    // Теперь колонка только одна
+    grid-template-columns: 1fr;
+    // Хэдер с лого зависит от ширины экрана, остальные рассчитываются автоматически
+    grid-template-rows: 210px auto auto auto auto;
 
-                // Всё, кроме лого, пропадает
-                &>div {
-                    display: none;
-                }
-            }
+    // Хэдер
+    .header {
+      grid-column: 1/2;
 
-            // Панель навигации
-            .nav {
-                grid-column: 1/2;
-                justify-content: space-evenly;
-            }
-
-            // Панель с побочной информацией 
-            .side-bar {
-                grid-row: 4 / 5;
-                
-                // Все картинки пропадают
-                img {
-                    display: none;
-                }
-
-                // Блоки продукции и звонка занимают всю ширину контейнера, их содержимое центрируется
-                .production, .callback {
-                    width: 100%;
-                    margin-right: 0;
-                    margin-bottom: 2%;
-                    justify-content: center;
-                }
-
-                // Ссылки в списке продуктов центрируются
-                .production {
-                    .list-prod {
-                        a {
-                            text-align: center;
-                            justify-content: center;
-                        }
-                    } 
-                }
-
-                // Ссылка в блоке звонка приводится к виду ссылки в our-prod
-                .callback {
-                    text-decoration: underline;
-
-                    &:hover {
-                        text-decoration: none;
-                    }
-                }
-            }
-
-            // Футер
-            .footer {
-                grid-column: 1/2;
-                
-                // Блоки не пропадают
-                &>div {
-                    display: flex;
-                    
-                    span {
-                        font-size: 2.5vw;
-                    }
-                }
-            }
-        }
+      // Всё, кроме лого, пропадает
+      & > div {
+        display: none;
+      }
     }
+
+    // Панель навигации
+    .nav {
+      grid-column: 1/2;
+      justify-content: space-evenly;
+    }
+
+    // Панель с побочной информацией
+    .side-bar {
+      grid-row: 4 / 5;
+
+      // Все картинки пропадают
+      img {
+        display: none;
+      }
+
+      // Блоки продукции и звонка занимают всю ширину контейнера, их содержимое центрируется
+      .production,
+      .callback {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 2%;
+        justify-content: center;
+      }
+
+      // Ссылки в списке продуктов центрируются
+      .production {
+        .list-prod {
+          a {
+            text-align: center;
+            justify-content: center;
+          }
+        }
+      }
+
+      // Ссылка в блоке звонка приводится к виду ссылки в our-prod
+      .callback {
+        text-decoration: underline;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+
+    // Футер
+    .footer {
+      grid-column: 1/2;
+
+      // Блоки не пропадают
+      & > div {
+        display: flex;
+
+        span {
+          font-size: 2.5vw;
+        }
+      }
+    }
+  }
+}
+
+// Медиазапрос для экранов до 425px
+@media only screen and (max-width: 425px) {
+  // Кнопка увеличивается
+  #goTop {
+    height: 66px;
+    width: 66px;
+  }
+
+  // Страница
+  .page {
+    // Панель навигации
+    .nav {
+      // Элементы меню встают в 4 ряда и 2 колонки
+      display: grid;
+      grid-template-rows: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+
+      // Шрифт увеличивается
+      font-size: 2em;
+    }
+
+    // Панель с основным контентом
+    .main {
+      .content {
+        // Шрифт увеличивается
+        h1 {
+          font-size: 3em;
+        }
+
+        h2 {
+          font-size: 2.5em;
+        }
+
+        strong,
+        p {
+          // Текст выравнивается по левому краю, чтобы не было больших промежутков между словами
+          text-align: left;
+          font-size: 2em;
+        }
+
+        // В блоках партнёров и достижений элементы растягиваются до краёв контейнера
+        // И выстраиваются в одну колонку
+        .gallery {
+          justify-content: center;
+          flex-direction: column;
+
+          .gallery-unit {
+            max-width: none;
+            width: 100%;
+
+            img {
+              width: 200px;
+            }
+
+            figcaption {
+              font-size: 2em;
+            }
+          }
+        }
+      }
+    }
+
+    // Увеличивается шрифт
+    .side-bar {
+      font-size: 2em;
+    }
+
+    // Футер
+    .footer {
+      // Элементы футера выстраиваются в две колонки
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      padding: 0;
+
+      div {
+        width: 100%;
+
+        // Шрифт увеличивается, текст центрируется
+        span {
+          font-size: 1.5em;
+          text-align: center;
+        }
+      }
+    }
+  }
 }

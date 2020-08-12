@@ -4,7 +4,9 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-div, body, p {
+div,
+body,
+p {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -252,7 +254,8 @@ div, body, p {
   padding: 2%;
 }
 
-.page .main .content h1, .page .main .content h2 {
+.page .main .content h1,
+.page .main .content h2 {
   font-weight: normal;
   text-transform: uppercase;
   color: #009600;
@@ -323,7 +326,7 @@ div, body, p {
   background-color: #b3cff2;
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 991px) {
   .page .header div:nth-child(2), .page .footer div:nth-child(2) {
     display: none;
   }
@@ -358,25 +361,29 @@ div, body, p {
 }
 
 @media only screen and (max-width: 640px) {
+  #goTop {
+    height: 44px;
+    width: 44px;
+  }
   #background {
     width: 640px;
   }
-  #background .page {
+  .page {
     padding: 1% 2% 0 2%;
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
     -ms-grid-rows: 210px auto auto auto auto;
         grid-template-rows: 210px auto auto auto auto;
   }
-  #background .page .header, #background .page .footer {
+  .page .header, .page .footer {
     -ms-grid-column: 1;
     -ms-grid-column-span: 1;
     grid-column: 1/2;
   }
-  #background .page .header > div, #background .page .footer > div {
+  .page .header > div, .page .footer > div {
     display: none;
   }
-  #background .page .nav {
+  .page .nav {
     -ms-grid-column: 1;
     -ms-grid-column-span: 1;
     grid-column: 1/2;
@@ -384,15 +391,16 @@ div, body, p {
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
   }
-  #background .page .side-bar {
+  .page .side-bar {
     -ms-grid-row: 4;
     -ms-grid-row-span: 1;
     grid-row: 4 / 5;
   }
-  #background .page .side-bar img {
+  .page .side-bar img {
     display: none;
   }
-  #background .page .side-bar .production, #background .page .side-bar .callback {
+  .page .side-bar .production,
+  .page .side-bar .callback {
     width: 100%;
     margin-right: 0;
     margin-bottom: 2%;
@@ -400,29 +408,94 @@ div, body, p {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  #background .page .side-bar .production .list-prod a {
+  .page .side-bar .production .list-prod a {
     text-align: center;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
-  #background .page .side-bar .callback {
+  .page .side-bar .callback {
     text-decoration: underline;
   }
-  #background .page .side-bar .callback:hover {
+  .page .side-bar .callback:hover {
     text-decoration: none;
   }
-  #background .page .footer {
+  .page .footer {
     -ms-grid-column: 1;
     -ms-grid-column-span: 1;
     grid-column: 1/2;
   }
-  #background .page .footer > div {
+  .page .footer > div {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
-  #background .page .footer > div span {
+  .page .footer > div span {
     font-size: 2.5vw;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  #goTop {
+    height: 66px;
+    width: 66px;
+  }
+  .page .nav {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-rows: (1fr)[4];
+        grid-template-rows: repeat(4, 1fr);
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    font-size: 2em;
+  }
+  .page .main .content h1 {
+    font-size: 3em;
+  }
+  .page .main .content h2 {
+    font-size: 2.5em;
+  }
+  .page .main .content strong,
+  .page .main .content p {
+    text-align: left;
+    font-size: 2em;
+  }
+  .page .main .content .gallery {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .page .main .content .gallery .gallery-unit {
+    max-width: none;
+    width: 100%;
+  }
+  .page .main .content .gallery .gallery-unit img {
+    width: 200px;
+  }
+  .page .main .content .gallery .gallery-unit figcaption {
+    font-size: 2em;
+  }
+  .page .side-bar {
+    font-size: 2em;
+  }
+  .page .footer {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -ms-grid-rows: (1fr)[2];
+        grid-template-rows: repeat(2, 1fr);
+    padding: 0;
+  }
+  .page .footer div {
+    width: 100%;
+  }
+  .page .footer div span {
+    font-size: 1.5em;
+    text-align: center;
   }
 }
